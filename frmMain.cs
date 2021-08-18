@@ -17,8 +17,6 @@ namespace Lab02_04
             InitializeComponent();
         }
 
-        public List<ListViewItem> items;
-
         private void ResetValue()
         {
             txtSoTaiKhoan.Text = "";
@@ -82,13 +80,13 @@ namespace Lab02_04
 
         private void CapNhatItem(int selectedRow)
         {
-            lvTTTK.Items.RemoveAt(selectedRow);
-
             lvTTTK.Items.Insert(selectedRow, (selectedRow + 1).ToString());
             lvTTTK.Items[selectedRow].SubItems.Add(txtSoTaiKhoan.Text);
             lvTTTK.Items[selectedRow].SubItems.Add(txtTenKhachHang.Text);
             lvTTTK.Items[selectedRow].SubItems.Add(txtDiaChiKhachHang.Text);
             lvTTTK.Items[selectedRow].SubItems.Add(txtSoTienTrongTaiKhoan.Text);
+
+            lvTTTK.Items.RemoveAt(selectedRow + 1);
 
             ResetValue();
 
